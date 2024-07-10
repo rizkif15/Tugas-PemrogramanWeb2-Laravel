@@ -10,7 +10,6 @@ class Post extends Model
     use HasFactory;
 
     protected $fillable = [
-        'no',
         'nama_barang',
         'jumlah',
         'keterangan',
