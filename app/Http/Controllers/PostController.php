@@ -6,6 +6,7 @@ use App\Models\Post;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Barryvdh\DomPDF\Facade\Pdf as PDF;
 
 class PostController extends Controller
 {
@@ -101,5 +102,11 @@ class PostController extends Controller
 
         return redirect()->route('posts.index')->with('success', 'Post deleted successfully.');
 
+    }
+
+    public function generatePDF(){
+        $posts = Post::all();
+        $pdf = PDF::loadView('posts.pdf', compact('posts'));
+        return $pdf->download('posts.pdf');
     }
 }

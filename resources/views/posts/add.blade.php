@@ -12,14 +12,14 @@
         <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label for="nama_barang">Judul</label>
+                <label for="nama_barang">Nama Barang</label>
                 <input type="text" class="form-control" id="nama_barang" name="nama_barang" placeholder="Masukan Nama Barang">
                 @error('nama_barang')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
             <div class="form-group">
-                <label for="jumlah">Konten</label>
+                <label for="jumlah">Jumlah</label>
                 <input type="number" class="form-control" id="jumlah" name="jumlah" placeholder="Jumlah Barang" min="0" step="1">
                 @error('jumlah')
                 <div class="alert alert-danger">{{ $message }}</div>
